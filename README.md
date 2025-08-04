@@ -73,10 +73,10 @@ Installing dependencies
 pnpm install
 ```
 
-And running the setup script (initializes git repository and husky and installs playwright)
+And running the prepare script (installs husky)
 
 ```
-pnpm run setup
+pnpm run prepare
 ```
 
 Congrats! You're ready to starting working on that new project!
@@ -88,7 +88,7 @@ git clone git@github.com:RicardoValdovinos/vite-react-boilerplate.git &&\
 cd vite-react-boilerplate &&\
 rm -rf .git &&\
 pnpm install &&\
-pnpm run setup
+pnpm run prepare
 ```
 
 **Note**: This project comes with two git hooks added by [husky](https://typicode.github.io/husky/). A prepare-commit-msg hook to run the [Commitizen](https://github.com/commitizen/cz-cli#readme) cli for those nice commit messages and a commit-msg hook to run [Commitlint](https://commitlint.js.org/#/) on the message itself. Commitlint will ensure the commit message follows the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/) (it will if you used commitizen).
