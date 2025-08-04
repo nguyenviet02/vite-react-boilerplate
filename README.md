@@ -26,7 +26,6 @@ Built with type safety, scalability, and developer experience in mind. A batteri
 - [Vite](https://vitejs.dev) - Feature rich and highly optimized frontend tooling with TypeScript support out of the box
 - [React](https://react.dev) - A modern front-end JavaScript library for building user interfaces based on components
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework packed with classes to build any web design imaginable
-- [Storybook](https://storybook.js.org) - A frontend workshop for building UI components and pages in isolation
 - [TanStack Router](https://tanstack.com/router/v1) - Fully typesafe, modern and scalable routing for React applications
 - [TanStack Query](https://tanstack.com/query/latest) - Declarative, always-up-to-date auto-managed queries and mutations
 - [TanStack Table](https://tanstack.com/table/v8) - Headless UI for building powerful tables & datagrids
@@ -285,7 +284,6 @@ A simplified list can be found in the [Overview](#overview) section.
   - [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
   - [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh)
   - [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)
-  - [eslint-plugin-storybook](https://github.com/storybookjs/eslint-plugin-storybook#readme)
 - [Prettier](https://prettier.io)
 
 ### State Management
@@ -299,7 +297,6 @@ A simplified list can be found in the [Overview](#overview) section.
 - [HeadlessUI](https://headlessui.com)
 - [heroicons](https://heroicons.com)
 - [TanStack Table](https://tanstack.com/table/v8)
-- [Storybook](https://storybook.js.org)
 
 ### Forms
 
