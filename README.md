@@ -52,7 +52,7 @@ If you'd like to use the included Dockerfile then [Docker](https://www.docker.co
 Getting started is a simple as cloning the repository
 
 ```
-git clone git@github.com:RicardoValdovinos/vite-react-boilerplate.git
+git clone git@github.com:nguyenviet02/vite-react-boilerplate.git
 ```
 
 Changing into the new directory
