@@ -33,7 +33,7 @@ Built with type safety, scalability, and developer experience in mind. A batteri
 - [React Hook Form](https://react-hook-form.com) - Performant, flexible and extensible forms with easy-to-use validation
 - [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
 - [Dayjs](https://day.js.org/en/) - A minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers
-- [Husky](https://github.com/typicode/husky#readme) + [Commitizen](https://github.com/commitizen/cz-cli#readme) + [Commitlint](https://github.com/conventional-changelog/commitlint#readme) - Git hooks and commit linting to ensure use of descriptive and practical commit messages
+- [Husky](https://github.com/typicode/husky#readme) + [Commitlint](https://github.com/conventional-changelog/commitlint#readme) + [Lint-staged](https://github.com/okonet/lint-staged#readme) - Git hooks and commit linting to ensure use of descriptive and practical commit messages
 - [ts-reset](https://github.com/total-typescript/ts-reset#readme) - Improvements for TypeScripts built-in typings for use in applications
 - [Docker](https://www.docker.com) - Containerization tool for deploying your vite-react-boilerplate app
 
@@ -90,7 +90,7 @@ pnpm install &&\
 pnpm run prepare
 ```
 
-**Note**: This project comes with two git hooks added by [husky](https://typicode.github.io/husky/). A prepare-commit-msg hook to run the [Commitizen](https://github.com/commitizen/cz-cli#readme) cli for those nice commit messages and a commit-msg hook to run [Commitlint](https://commitlint.js.org/#/) on the message itself. Commitlint will ensure the commit message follows the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/) (it will if you used commitizen).
+**Note**: This project comes with two git hooks added by [husky](https://typicode.github.io/husky/). A commit-msg hook to run the [Commitlint](https://commitlint.js.org/#/) on the message itself and a pre-commit hook to run [Lint-staged](https://github.com/okonet/lint-staged#readme) on the message itself. Commitlint will ensure the commit message follows the [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/). Lint-staged will run the linting and formatting commands on the files you are committing.
 
 If you wish to remove any hooks, simply delete the corresponding file in the .husky directory.
 
@@ -234,8 +234,8 @@ A simplified list can be found in the [Overview](#overview) section.
 ### Git
 
 - [Husky](https://github.com/typicode/husky#readme)
-- [Commitizen](https://github.com/commitizen/cz-cli#readme)
 - [Commitlint](https://github.com/conventional-changelog/commitlint#readme)
+- [Lint-staged](https://github.com/okonet/lint-staged#readme)
 
 ### Other
 
