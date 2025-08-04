@@ -32,7 +32,6 @@ Built with type safety, scalability, and developer experience in mind. A batteri
 - [Zustand](https://zustand-demo.pmnd.rs) - An unopinionated, small, fast and scalable bearbones state-management solution
 - [React Hook Form](https://react-hook-form.com) - Performant, flexible and extensible forms with easy-to-use validation
 - [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
-- [React Testing Library](https://testing-library.com) - A very light-weight, best practice first, solution for testing React components
 - [Vitest](https://vitest.dev) - A blazing fast unit test framework powered by Vite
 - [Playwright](https://playwright.dev) - Enables reliable end-to-end testing for modern web apps
 - [Nivo](https://nivo.rocks) - A rich set of data visualization components, built on top of D3 and React
@@ -309,12 +308,6 @@ A simplified list can be found in the [Overview](#overview) section.
   - [Line](https://nivo.rocks/line/)
   - [Bar](https://nivo.rocks/bar/)
   - [Pie](https://nivo.rocks/pie/)
-
-### Testing
-
-- [Vitest](https://vitest.dev)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- [Playwright](https://playwright.dev)
 
 ### Development Tools
 
