@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm run commitizen # commitizen
+# Use a cross-platform approach for commitizen
+npx --no -- commitizen init cz-conventional-changelog --save-dev --save-exact && npx --no -- git-cz --hook || true
