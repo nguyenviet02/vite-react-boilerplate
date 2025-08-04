@@ -32,9 +32,6 @@ Built with type safety, scalability, and developer experience in mind. A batteri
 - [Zustand](https://zustand-demo.pmnd.rs) - An unopinionated, small, fast and scalable bearbones state-management solution
 - [React Hook Form](https://react-hook-form.com) - Performant, flexible and extensible forms with easy-to-use validation
 - [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
-- [Vitest](https://vitest.dev) - A blazing fast unit test framework powered by Vite
-- [Playwright](https://playwright.dev) - Enables reliable end-to-end testing for modern web apps
-- [Nivo](https://nivo.rocks) - A rich set of data visualization components, built on top of D3 and React
 - [react-i18next](https://react.i18next.com/) - A powerful internationalization framework for React/React Native based on i18next
 - [Faker](https://fakerjs.dev/) - Generate massive amounts of fake (but realistic) data for testing and development
 - [Dayjs](https://day.js.org/en/) - A minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers
@@ -301,13 +298,6 @@ A simplified list can be found in the [Overview](#overview) section.
 
 - [React Hook Form](https://react-hook-form.com)
 - [Zod](https://zod.dev)
-
-### Data Visualization
-
-- [Nivo](https://nivo.rocks)
-  - [Line](https://nivo.rocks/line/)
-  - [Bar](https://nivo.rocks/bar/)
-  - [Pie](https://nivo.rocks/pie/)
 
 ### Development Tools
 
