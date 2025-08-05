@@ -26,13 +26,6 @@ Built with type safety, scalability, and developer experience in mind. A batteri
 - [Vite](https://vitejs.dev) - Feature rich and highly optimized frontend tooling with TypeScript support out of the box
 - [React](https://react.dev) - A modern front-end JavaScript library for building user interfaces based on components
 - [Tailwind CSS](https://tailwindcss.com) - A utility-first CSS framework packed with classes to build any web design imaginable
-- [TanStack Router](https://tanstack.com/router/v1) - Fully typesafe, modern and scalable routing for React applications
-- [TanStack Query](https://tanstack.com/query/latest) - Declarative, always-up-to-date auto-managed queries and mutations
-- [TanStack Table](https://tanstack.com/table/v8) - Headless UI for building powerful tables & datagrids
-- [Zustand](https://zustand-demo.pmnd.rs) - An unopinionated, small, fast and scalable bearbones state-management solution
-- [React Hook Form](https://react-hook-form.com) - Performant, flexible and extensible forms with easy-to-use validation
-- [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
-- [Dayjs](https://day.js.org/en/) - A minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers
 - [Husky](https://github.com/typicode/husky#readme) + [Commitlint](https://github.com/conventional-changelog/commitlint#readme) + [Lint-staged](https://github.com/okonet/lint-staged#readme) - Git hooks and commit linting to ensure use of descriptive and practical commit messages
 - [ts-reset](https://github.com/total-typescript/ts-reset#readme) - Improvements for TypeScripts built-in typings for use in applications
 - [Docker](https://www.docker.com) - Containerization tool for deploying your vite-react-boilerplate app
@@ -128,60 +121,6 @@ A Dockerfile with an [NGINX](https://www.nginx.com) base image is also provided 
 
 Due to the vast array of tools, opinions, requirements and preferences a CI template is not included in this project.
 
-## Devtools
-
-This project includes a set of Devtools. Some are additional package dependencies whereas others come built-in to the packages themselves.
-
-### Devtool dependencies:
-
-- [@tanstack/react-query-devtools](https://tanstack.com/query/v4/docs/react/devtools) - Dedicated dev tools to help visualize the inner workings of React Query
-- [@tanstack/router-devtools](https://tanstack.com/router/v1/docs/devtools) - Dedicated dev tools to help visualize the inner workings of TanStack Router
-- [@tanstack/react-table-devtools](https://www.npmjs.com/package/@tanstack/react-table-devtools) - Dedicated dev tools to help visualize the inner workings of TanStack Table
-- [@hookform/DevTools](https://react-hook-form.com/dev-tools) - React Hook Form Devtools to help debug forms with validation
-
-A set of utility components are provided in `src/components/utils/development-tools/`. These [wrapper components](https://tanstack.com/router/v1/docs/devtools#only-importing-and-using-devtools-in-developmentgit) check whether the application is running in development or production mode and render the component or null respectively. In other words, you can confidently use them during development without having to worry about them showing up for end users in production.
-
-**TanStack Query Devtools** are ready to go out of the box. The development vs. production rendering mechanism is built into the devtools. If you do wish to [render the devtools in production](https://tanstack.com/query/latest/docs/react/devtools) you can freely do so by following the TanStack Query Devtools documentation. The devtools component can be found in `src/App.tsx`.
-
-When running the application in development mode you can find the TanStack Query Devtools icon in the bottom left corner of the page sporting the [React Query Logo](https://img.stackshare.io/service/25599/default_c6db7125f2c663e452ba211df91b2ced3bb7f0ff.png).
-
-**TanStack Router Devtools**, however, utilizes its respective utility component in this project. The initial setup has been taken care of but if you wish to modify or remove the component, have a look in `src/App.tsx`.
-
-The TanStack Router Devtools icon can be found in the bottom right corner of the page denoted by the vertically stacked "TANSTACK ROUTER" logo.
-
-The above components, along with their imports, are commented out to start.
-
-**TanStack Table Devtools** Documentation is, at the time of writing this, non-existent. Having said that, usage is similar to the other TanStack devtools. A utility component restricting the devtools to development builds has been provided. The difference in comparison to the other TanStack devtools is the lack of floating mode. Instead, the Devtools are rendered as a component within the actual TanStack Table you define. An additional caveat being that the DevTools component (built-in and provided utility alike) require a table prop from the `useReactTable()` hook. In other words, if you have multiple tables, each table must have its own Devtools component. Check the simplified code below.
-
-```
-function Table(): FunctionComponent {
-  /* some code */
-
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
-
-  return (
-    <>
-      {/* table code */}
-      <TanStackTableDevelopmentTools table={table} />
-    </>
-  )
-}
-```
-
-**React Hook Form DevTools** icon can be recognized in the top right corner of the page by the pink React Hook Form clipboard logo. A utility component has also provided. Like the TanStack Table Devtools component above, a prop must be passed from a specific hook. In this case, it is the control prop from the `useForm()` hook. Similar to TanStack Table, use of React Hook Form DevTools requires the component be added to each unique form. More information can be found in the [React Hook Form DevTools documentation](https://react-hook-form.com/dev-tools).
-
-To reiterate, if you wish to restrict the Devtools to development builds use the provided components found at `src/components/utils/development-tools` instead of the built-in components from their respective modules.
-
-### Built-in Devtools:
-
-- Zustand
-
-**Zustand** provides a built-in [devtools middleware](https://github.com/pmndrs/zustand#redux-devtools) for use with [Redux DevTools](https://github.com/reduxjs/redux-devtools#redux-devtools).
-
 ## Installed Packages
 
 A simplified list can be found in the [Overview](#overview) section.
@@ -191,10 +130,6 @@ A simplified list can be found in the [Overview](#overview) section.
 - [TypeScript](https://www.typescriptlang.org)
 - [Vite](https://vitejs.dev)
 - [React](https://react.dev)
-
-### Routing
-
-- [TanStack Router](https://tanstack.com/router/v1)
 
 ### Linting & Formatting
 
@@ -207,29 +142,11 @@ A simplified list can be found in the [Overview](#overview) section.
   - [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn#readme)
 - [Prettier](https://prettier.io)
 
-### State Management
-
-- [TanStack Query (React Query)](https://tanstack.com/query/latest)
-- [Zustand](https://zustand-demo.pmnd.rs)
-
 ### UI
 
 - [Tailwind CSS](https://tailwindcss.com)
 - [HeadlessUI](https://headlessui.com)
 - [heroicons](https://heroicons.com)
-- [TanStack Table](https://tanstack.com/table/v8)
-
-### Forms
-
-- [React Hook Form](https://react-hook-form.com)
-- [Zod](https://zod.dev)
-
-### Development Tools
-
-- [TanStack Query Devtools](https://tanstack.com/query/latest/docs/react/devtools?from=reactQueryV3&original=https%3A%2F%2Ftanstack.com%2Fquery%2Fv3%2Fdocs%2Fdevtools)
-- [TanStack Router Devtools](https://tanstack.com/router/v1/docs/devtools)
-- [TanStack Table Devtools](https://www.npmjs.com/package/@tanstack/react-table-devtools)
-- [React Hook Form Devtools](https://react-hook-form.com/dev-tools)
 
 ### Git
 
@@ -240,4 +157,3 @@ A simplified list can be found in the [Overview](#overview) section.
 ### Other
 
 - [ts-reset](https://github.com/total-typescript/ts-reset#readme)
-- [Dayjs](https://day.js.org/en/)
