@@ -1,24 +1,22 @@
-import { fixupPluginRules } from '@eslint/compat';
-import eslintJS from "@eslint/js"
-import tsParser from '@typescript-eslint/parser';
-import eslintConfigPrettier from "eslint-config-prettier"
-import eslintPluginImport from 'eslint-plugin-import'
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y'
-import eslintPluginReact from "eslint-plugin-react"
-import eslintPluginReactHooks from "eslint-plugin-react-hooks"
-import eslintPluginReactRefresh from "eslint-plugin-react-refresh"
-import eslintPluginUnicorn from "eslint-plugin-unicorn"
-import globals from "globals"
-import typescriptEslint from 'typescript-eslint';
+import { fixupPluginRules } from "@eslint/compat";
+import eslintJS from "@eslint/js";
+import tsParser from "@typescript-eslint/parser";
+import eslintConfigPrettier from "eslint-config-prettier";
+import eslintPluginImport from "eslint-plugin-import";
+import jsxA11yPlugin from "eslint-plugin-jsx-a11y";
+import eslintPluginReact from "eslint-plugin-react";
+import eslintPluginReactHooks from "eslint-plugin-react-hooks";
+import eslintPluginReactRefresh from "eslint-plugin-react-refresh";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import globals from "globals";
+import typescriptEslint from "typescript-eslint";
 
-const patchedReactHooksPlugin = fixupPluginRules(eslintPluginReactHooks)
-const patchedImportPlugin = fixupPluginRules(eslintPluginImport)
+const patchedReactHooksPlugin = fixupPluginRules(eslintPluginReactHooks);
+const patchedImportPlugin = fixupPluginRules(eslintPluginImport);
 
 const baseESLintConfig = {
 	name: "eslint",
-	extends: [
-		eslintJS.configs.recommended,
-	],
+	extends: [eslintJS.configs.recommended],
 	rules: {
 		"no-await-in-loop": "error",
 		"no-constant-binary-expression": "error",
@@ -32,15 +30,12 @@ const baseESLintConfig = {
 		"no-unused-private-class-members": "error",
 		"no-use-before-define": "error",
 		"require-atomic-updates": "error",
-		"camelcase": "error",
-	}
-}
+		camelcase: "error",
+	},
+};
 
 const typescriptConfig = {
 	name: "typescript",
-	extends: [
-		...typescriptEslint.configs.recommendedTypeChecked,
-	],
 	languageOptions: {
 		parser: tsParser,
 		parserOptions: {
@@ -51,18 +46,20 @@ const typescriptConfig = {
 		globals: {
 			...globals.builtin,
 			...globals.browser,
-			...globals.es2025
+			...globals.es2025,
 		},
 	},
 	linterOptions: {
-		reportUnusedDisableDirectives: "error"
+		reportUnusedDisableDirectives: "error",
 	},
 	plugins: {
-		import: patchedImportPlugin
+		import: patchedImportPlugin,
+		"@typescript-eslint": typescriptEslint.plugin,
 	},
 	rules: {
+		...typescriptEslint.configs.recommendedTypeChecked[0].rules,
 		"@typescript-eslint/adjacent-overload-signatures": "error",
-		"@typescript-eslint/array-type": ["error", { "default": "generic" }],
+		"@typescript-eslint/array-type": ["error", { default: "generic" }],
 		"@typescript-eslint/consistent-type-exports": "error",
 		"@typescript-eslint/consistent-type-imports": "error",
 		"@typescript-eslint/explicit-function-return-type": "error",
@@ -80,37 +77,36 @@ const typescriptConfig = {
 		"@typescript-eslint/no-misused-promises": [
 			"error",
 			{
-				"checksVoidReturn": {
-					"attributes": false
-				}
-			}
-		]
+				checksVoidReturn: {
+					attributes: false,
+				},
+			},
+		],
 	},
 	settings: {
-		'import/resolver': {
+		"import/resolver": {
 			typescript: {
 				alwaysTryTypes: true,
-				project: './tsconfig.json'
-			}
-		}
-	}
-}
+				project: "./tsconfig.json",
+			},
+		},
+	},
+};
 
 const reactConfig = {
 	name: "react",
-	extends: [
-		eslintPluginReact.configs.flat["jsx-runtime"],
-	],
 	plugins: {
 		"react-hooks": patchedReactHooksPlugin,
 		"react-refresh": eslintPluginReactRefresh,
+		react: eslintPluginReact,
 	},
 	rules: {
+		...eslintPluginReact.configs.flat["jsx-runtime"].rules,
 		"import/no-anonymous-default-export": "error",
 		"react/jsx-boolean-value": "error",
 		"react/jsx-filename-extension": [
 			2,
-			{ extensions: ['.js', '.jsx', '.ts', '.tsx'] }
+			{ extensions: [".js", ".jsx", ".ts", ".tsx"] },
 		],
 		"react/jsx-no-target-blank": "off",
 		"react/jsx-max-props-per-line": "off",
@@ -130,10 +126,10 @@ const reactConfig = {
 		...patchedReactHooksPlugin.configs.recommended.rules,
 		"react-refresh/only-export-components": [
 			"warn",
-			{ "allowConstantExport": true }
+			{ allowConstantExport: true },
 		],
 	},
-}
+};
 
 const jsxA11yConfig = {
 	name: "jsxA11y",
@@ -142,17 +138,14 @@ const jsxA11yConfig = {
 		"jsx-a11y": jsxA11yPlugin,
 	},
 	rules: {
-		"jsx-a11y/alt-text": [
-			"error",
-			{ elements: ["img"], img: ["Image"] },
-		],
+		"jsx-a11y/alt-text": ["error", { elements: ["img"], img: ["Image"] }],
 		"jsx-a11y/aria-props": "error",
 		"jsx-a11y/aria-proptypes": "error",
 		"jsx-a11y/aria-unsupported-elements": "error",
 		"jsx-a11y/role-has-required-aria-props": "error",
 		"jsx-a11y/role-supports-aria-props": "error",
-	}
-}
+	},
+};
 
 const unicornConfig = {
 	name: "unicorn",
@@ -170,27 +163,27 @@ const unicornConfig = {
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
-				"replacements": {
-					"db": false,
-					"arg": false,
-					"args": false,
-					"env": false,
-					"fn": false,
-					"func": {
-						"fn": true,
-						"function": false
+				replacements: {
+					db: false,
+					arg: false,
+					args: false,
+					env: false,
+					fn: false,
+					func: {
+						fn: true,
+						function: false,
 					},
-					"prop": false,
-					"props": false,
-					"ref": false,
-					"refs": false,
-					'utils': false,
+					prop: false,
+					props: false,
+					ref: false,
+					refs: false,
+					utils: false,
 				},
-				"ignore": ["semVer", "SemVer"]
-			}
-		]
-	}
-}
+				ignore: ["semVer", "SemVer"],
+			},
+		],
+	},
+};
 
 const eslintConfig = typescriptEslint.config(
 	baseESLintConfig,
@@ -199,10 +192,35 @@ const eslintConfig = typescriptEslint.config(
 	reactConfig,
 	jsxA11yConfig,
 	unicornConfig
-)
+);
 
+// Create a specific config for node/config typescript files
+const nodeTypescriptConfig = {
+	...typescriptConfig,
+	languageOptions: {
+		...typescriptConfig.languageOptions,
+		parserOptions: {
+			...typescriptConfig.languageOptions.parserOptions,
+			project: "./tsconfig.node.json",
+		},
+	},
+	plugins: {
+		...typescriptConfig.plugins,
+		"@typescript-eslint": typescriptEslint.plugin,
+	},
+};
+
+// Add the node config to the eslint config
+eslintConfig.push({
+	...nodeTypescriptConfig,
+	files: ["vite.config.ts"],
+});
+
+// Set files pattern for regular app files
 eslintConfig.map((config) => {
-	config.files = ["src/**/*.ts", "src/**/*.tsx"]
-})
+	if (!config.files) {
+		config.files = ["src/**/*.ts", "src/**/*.tsx"];
+	}
+});
 
-export default eslintConfig
+export default eslintConfig;
